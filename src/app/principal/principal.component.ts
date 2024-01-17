@@ -1,7 +1,7 @@
+import { Cliente } from './../model/Cliente';
 import { ClienteService } from './../servico/cliente.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Cliente } from '../model/Cliente';
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -10,6 +10,9 @@ import { Cliente } from '../model/Cliente';
   styleUrl: './principal.component.css'
 })
 export class PrincipalComponent {
+  // Objeto do tipo Cliente
+  cliente = new Cliente();
+
   // Variavel para visibilidade dos botões
   btnCadastro:Boolean = true;
 
