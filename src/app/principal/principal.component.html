@@ -1,4 +1,4 @@
-<h1>Nosso principal funciona</h1>
+<h1>Cadastro e visualização de clientes :D</h1>
 
 <form>
     <img src="assets/cliente.svg">
@@ -24,5 +24,13 @@
             <th>Selecionar</th>
         </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+        <tr *ngFor="let c of clientes; index as i">
+            <td>{{i+1}}</td>
+            <td>{{c.nome}}</td>
+            <td>{{c.idade}}</td>
+            <td>{{c.cidade}}</td>
+            <td><button class="btn btn-success">Selecionar</button></td>
+        </tr>
+    </tbody>
 </table>

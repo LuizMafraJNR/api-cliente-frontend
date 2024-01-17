@@ -1,14 +1,18 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PrincipalComponent } from './principal/principal.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule } from '@angular/forms';
+import { ClienteService } from './servico/cliente.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, PrincipalComponent, HttpClientModule, FormsModule],
+  // Importante para injetar o serviço nesse 'modulo'
+  providers: [ClienteService],
+  imports: [CommonModule, RouterOutlet,FormsModule, HttpClientModule, PrincipalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,11 +1,7 @@
+import { ClienteService } from './../servico/cliente.service';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
 import { Cliente } from '../model/Cliente';
-import { ClienteService } from '../servico/cliente.service';
-
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -26,6 +22,11 @@ export class PrincipalComponent {
   // Método de seleção
   selecionar():void{
     this.servico.selecionar()
-    .subscribe(response => this.clientes = response);
+    .subscribe(retorno => this.clientes = retorno);
+  }
+
+  // Método de inicialização
+  ngOnInit(){
+    this.selecionar();
   }
 }
