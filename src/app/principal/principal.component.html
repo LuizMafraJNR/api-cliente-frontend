@@ -3,6 +3,7 @@
 <form>
     <img src="assets/cliente.svg">
 
+    <!-- tem que ter o name para referenciar o ngModel -->
     <input type="text" placeholder="Nome" class="form-control" name="nome" [(ngModel)]="cliente.nome">
     <input type="number" placeholder="Idade" class="form-control" name="idade" [(ngModel)]="cliente.idade">
     <input type="text"  placeholder="Cidade" class="form-control" name="cidade" [(ngModel)]="cliente.cidade">
