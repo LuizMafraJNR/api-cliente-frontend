@@ -18,6 +18,9 @@ export class PrincipalComponent {
   // Variavel para visibilidade dos botões
   btnCadastro:Boolean = true;
 
+  // Variavel para visibilidade do formulario
+  tabela:Boolean = true;
+
   // Vetor (Json) do tipo cliente
   clientes:Cliente[] = [];
 
@@ -41,6 +44,18 @@ export class PrincipalComponent {
 
       alert("Cliente cadastrado com sucesso!");
     });
+  }
+
+  // Método para selecionar um cliente
+  selecionarCliente(posicao:number):void{
+
+    //Selecionar cliente no vetor
+    this.cliente = this.clientes[posicao];
+
+    //Visibilidade dos botões e da tabela
+    this.btnCadastro = false;
+    this.tabela = false;
+
   }
 
   // Método de inicialização
