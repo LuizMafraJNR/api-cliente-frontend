@@ -65,7 +65,7 @@ export class PrincipalComponent {
 
       //Obter posição do vetor onde está o cliente
       let posicao = this.clientes.findIndex(obj => {
-        return obj.codigo == retorno.codigo;
+        return obj.id == retorno.id;
       });
 
       // Alterar os dados do cliente no vetor
@@ -82,6 +82,34 @@ export class PrincipalComponent {
 
       // Mensagem
       alert('Cliente editado com sucesso!');
+
+    });
+  }
+
+  // Remoção de cliente
+  remover():void{
+    this.servico.remover(this.cliente.id)
+    .subscribe(retorno => {
+
+      //Obter posição do vetor onde está o cliente
+      let posicao = this.clientes.findIndex(obj => {
+        return obj.id == this.cliente.id;
+      });
+
+      // Remover cliente do vetor
+      this.clientes.splice(posicao, 1);
+
+      // Limpar formulario
+      this.cliente = new Cliente();
+
+      // Visibilidade dos botões
+      this.btnCadastro = true;
+
+      // Visibilidade da tabela
+      this.tabela = true;
+
+      // Mensagem
+      alert('Cliente removido com sucesso!');
 
     });
   }

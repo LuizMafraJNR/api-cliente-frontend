@@ -10,6 +10,7 @@ export class ClienteService {
 
   // URL da API
   private url:string = 'http://localhost:8080';
+  private urlDeleter = 'http://localhost:8080/deletar/';
   private urlCadastro:string = 'http://localhost:8080/cadastrar';
 
   constructor(private http:HttpClient) {}
@@ -27,5 +28,10 @@ export class ClienteService {
     // Método para editar clientes
     editar(cliente:Cliente):Observable<Cliente>{
       return this.http.put<Cliente>(this.url, cliente);
+    }
+
+    // Método para editar clientes
+    remover(id:number):Observable<void>{
+      return this.http.delete<void>(this.urlDeleter + id);
     }
 }
