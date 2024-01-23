@@ -114,6 +114,12 @@ export class PrincipalComponent {
     });
   }
 
+  cancelar():void{
+    this.cliente = new Cliente();
+    this.btnCadastro = true;
+    this.tabela = true;
+  }
+
   // Método de inicialização
   ngOnInit(){
     this.selecionar();
